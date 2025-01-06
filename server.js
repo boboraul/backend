@@ -1,12 +1,10 @@
-const jsonServer = require('./node_modules/json-server'); // Import json-server
+const jsonServer = require('json-server');
 const server = jsonServer.create();
-const router = jsonServer.router('db.json'); // Ensure db.json exists in the same directory
+const router = jsonServer.router('db.json'); // Ensure db.json exists in the same folder as server.js
 const middlewares = jsonServer.defaults();
 
-server.use(middlewares); // Use default middlewares
-server.use(router); // Use router with db.json
-
-// Start the server
+server.use(middlewares);
+server.use(router);
 server.listen(3000, () => {
-  console.log('JSON Server is running on http://localhost:3000');
+  console.log('JSON Server is running');
 });
