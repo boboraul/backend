@@ -4,7 +4,12 @@ const router = jsonServer.router('db.json'); // Ensure db.json exists in the sam
 const middlewares = jsonServer.defaults();
 
 const PORT = process.env.PORT || 3000; // Use Render's PORT environment variable or default to 3000
-
+try {
+  const jsonServer = require('json-server');
+  console.log('json-server loaded successfully');
+} catch (error) {
+  console.error('Error loading json-server:', error);
+}
 server.use(middlewares);
 server.use(router);
 server.listen(PORT, () => {
